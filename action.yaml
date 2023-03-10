@@ -1,0 +1,29 @@
+name: 'Create Deploy Request'
+description: 'Creates a deploy request for a PlanetScale database.'
+branding:
+  color: 'orange'
+  icon: 'database'
+inputs:
+  database_name:
+    description: 'The name of the database.'
+    required: true
+  branch_name:
+    description: 'The name of the new branch.'
+    required: true
+  org_name:
+    description: 'The name of the organization that owns the database.'
+    required: true
+  deploy_to:
+    description: 'The target branch to merge changes into. Defaults to `main`.'
+    required: false
+outputs:
+  number:
+    description: 'The number of the deploy request.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.database_name }}
+    - ${{ inputs.branch_name }}
+    - ${{ inputs.org_name }}
+    - ${{ inputs.deploy_to }}
