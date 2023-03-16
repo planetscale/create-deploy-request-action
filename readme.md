@@ -39,7 +39,7 @@ jobs:
           PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
       - name: Get the deploy request number
         run: |
-          echo "Deploy request number: ${{ steps.create_password.outputs.number }}"
+          echo "Deploy request number: ${{ steps.create_deploy_request.outputs.number }}"
 ```
 
 ## Input variables
