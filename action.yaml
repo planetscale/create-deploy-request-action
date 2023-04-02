@@ -1,27 +1,29 @@
-name: 'Create Deploy Request'
-description: 'Creates a deploy request for a PlanetScale database.'
+name: "Create Deploy Request"
+description: "Creates a deploy request for a PlanetScale database."
 branding:
-  color: 'orange'
-  icon: 'database'
+  color: "orange"
+  icon: "database"
 inputs:
   database_name:
-    description: 'The name of the database.'
+    description: "The name of the database."
     required: true
   branch_name:
-    description: 'The name of the new branch.'
+    description: "The name of the new branch."
     required: true
   org_name:
-    description: 'The name of the organization that owns the database.'
+    description: "The name of the organization that owns the database."
     required: true
   deploy_to:
-    description: 'The target branch to merge changes into. Defaults to `main`.'
+    description: "The target branch to merge changes into. Defaults to `main`."
     required: false
 outputs:
   number:
-    description: 'The number of the deploy request.'
+    description: "The number of the deploy request."
+  exit_code:
+    description: "The exit code of the PlanetScale CLI command."
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
     - ${{ inputs.database_name }}
     - ${{ inputs.branch_name }}

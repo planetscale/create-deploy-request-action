@@ -7,6 +7,7 @@ if [ -n "$4" ];then
 fi
 
 CMDOUT=$(eval $command)
+echo "exit_code=$?" >> $GITHUB_OUTPUT
 
 number=$(jq -n "$CMDOUT" | jq '.number')
 echo "number=$number" >> $GITHUB_OUTPUT

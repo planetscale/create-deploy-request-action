@@ -57,3 +57,4 @@ jobs:
 ## Outputs
 
 - `number` - The number of the deploy request that was created.
+- `exit_code` - The exit code of the Planetscale CLI command.
