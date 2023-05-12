@@ -8,5 +8,10 @@ fi
 
 CMDOUT=$(eval $command)
 
+ret=$?
+if [ $ret -ne 0 ]; then
+  exit $ret
+fi
+
 number=$(jq -n "$CMDOUT" | jq '.number')
 echo "number=$number" >> $GITHUB_OUTPUT
