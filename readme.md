@@ -28,7 +28,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: Create a deploy request
-        uses: planetscale/create-deploy-request-action@v1
+        uses: planetscale/create-deploy-request-action@v2
         id: create_deploy_request
         with:
           org_name: bmorrison-ps
